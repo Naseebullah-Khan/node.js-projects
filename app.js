@@ -1,8 +1,18 @@
-const num = 156;
-if (num < 10) {
-  console.log("The number is lower than 10");
-} else if (num === 10) {
-  console.log("The number is equal to 10");
-} else {
-  console.log("The number is higher than 10");
-}
+const express = require("express");
+const app = express();
+
+const people = require("./routes/people");
+const auth = require("./routes/auth");
+
+// static assest
+app.use(express.static("./methods-static"));
+// parse form data
+app.use(express.urlencoded({ extended: false }));
+// parse json
+app.use(express.json());
+
+app.use("/api/people", people);
+
+app.use("/login", auth);
+
+app.listen(4000, () => console.log(`Server is listening on port 4000...`));

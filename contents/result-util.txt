@@ -1,2 +1,0 @@
-Result: This is the first file created! This is the second file created!
-Result: This is the first file created! This is the second file created!
